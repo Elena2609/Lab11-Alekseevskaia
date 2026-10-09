@@ -88,49 +88,99 @@
 // }
 
 //Самостоятельные задания
-using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics.Arm;
+// using System.Runtime.CompilerServices;
+// using System.Runtime.Intrinsics.Arm;
+
+// Console.WriteLine();
+// Console.WriteLine("Задача А");
+// int[] num = { 1, 2, 3, 4, 5 };
+// int target = 2;
+// bool found = false;
+// int index = 0;
+
+// for (int i = 0; i < num.Length; i++)
+// {
+//     if (num[i] == target)
+//     {
+//         found = true;
+//         index = i;
+//         break;
+
+//     }
+// }
+// if (found){
+//     Console.WriteLine($"Индекс искомого числа: {index}");
+// } else{
+//     Console.WriteLine("Число не найдено");
+// }
+
+// Console.WriteLine();
+// Console.WriteLine("Задача Б");
+// int number = 2;
+// bool flag = true;
+
+// if (number <= 1){
+//     flag = false;
+// } else {
+//     for (int a = 2; a < number; a++){
+//         if (number % a == 0){
+//             flag = false;
+//             break;
+//         }
+//     }
+// }
+// if (flag){
+//     Console.WriteLine($"Число {number} является простым");
+// } else {
+//     Console.WriteLine($"Число {number} не является простым");
+// }
+
+// //Индивидуальный вариант
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+// Console.WriteLine("Фамилия не введена. Завершение работы.");
+// return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+// .OrderBy(_ => rnd.Next())
+// .Take(2)
+// .OrderBy(x => x)
+// .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
 
 Console.WriteLine();
-Console.WriteLine("Задача А");
-int[] num = { 1, 2, 3, 4, 5 };
-int target = 2;
-bool found = false;
-int index = 0;
+Console.WriteLine("Вариант 4");
+int[] numbers = {52, 67, 12, 67, 100};
+bool hasDuplicates = false;
 
-for (int i = 0; i < num.Length; i++)
-{
-    if (num[i] == target)
-    {
-        found = true;
-        index = i;
-        break;
-
-    }
-}
-if (found){
-    Console.WriteLine($"Индекс искомого числа: {index}");
-} else{
-    Console.WriteLine("Число не найдено");
-}
-
-Console.WriteLine();
-Console.WriteLine("Задача Б");
-int number = 2;
-bool flag = true;
-
-if (number <= 1){
-    flag = false;
-} else {
-    for (int a = 2; a < number; a++){
-        if (number % a == 0){
-            flag = false;
+for (int i = 0; i < numbers.Length; i++){
+    for (int j = i+1; j < numbers.Length; j++){
+        if (numbers[i] == numbers[j]){
+            Console.WriteLine($"Повторяющиеся элементы: {numbers[i]} и {numbers[j]}");
+            hasDuplicates = true;
+            break;
+        }
+    if (hasDuplicates){
             break;
         }
     }
 }
-if (flag){
-    Console.WriteLine($"Число {number} является простым");
-} else {
-    Console.WriteLine($"Число {number} не является простым");
+if (!hasDuplicates){
+    Console.WriteLine("Нет повторяющихся элементов");
 }
+
+Console.WriteLine();
+Console.WriteLine("Вариант 9");
+string word = "топот";
+bool isPalindrome = true;
+
+for (int i = 0; i < word.Length / 2; i++){
+    if (word[i] != word[word.Length - 1 - i]){
+        isPalindrome = false;
+        break;
+    }
+}
+Console.WriteLine(isPalindrome ? "Слово является палиндромом" : "Слово не является палиндромом");
+
