@@ -33,3 +33,39 @@ if (variant == 1){
     Console.WriteLine(isPrime ? "Номер варианта простой" : "Номер варианта составной");
 
 }
+
+//Шаг 3. continue для пропуска элементов
+int[] pointsPerLab = { 8, -1, 10, 9, -1, 7 };
+int sum = 0;
+int count = 0;
+foreach (int points in pointsPerLab){
+    if (points < 0){
+        continue;
+    }
+    sum += points;
+    count++;
+}
+Console.WriteLine($"Сумма баллов за сданные работы: {sum}");
+
+//Шаг 4. Дубликаты в массиве
+int[] groupIds = { 101, 104, 107, 104, 110 };
+bool hasDuplicates = false;
+
+for (int i = 0; i < groupIds.Length; i++) {
+    for (int j = i + 1; j < groupIds.Length; j++) {
+        if (groupIds[i] == groupIds[j]) {
+            Console.WriteLine($"Совпавшие номера зачеток: {groupIds[i]} и {groupIds[j]}");
+            hasDuplicates = true;
+            break;
+        }
+    }
+    if (hasDuplicates) {
+        break;
+    }
+}
+if (!hasDuplicates) {
+    Console.WriteLine("Все номера уникальны");
+}
+
+
+
